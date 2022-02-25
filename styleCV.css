@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,200&family=Roboto:ital,wght@0,500;1,300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background: cadetblue;
+  display: flex;
+  justify-content: center;
+  /* justify-content ซ้าย ขวา */
+  align-items: center;
+  /* align-items คล้าย justify-content */
+  min-height: 100vh;
+  /* ใช้กำหนดค่าความสูงต่ำสุด ( อย่างน้อย ) ของพื้นที่ให้ element */
+}
+.container {
+  position: relative;
+  /* 1. ใช้สำหรับการจัดตำแหน่งของ DIV ที่ต้องการ 
+  2. ใช้รวมกับคำสั่ง left, right, top, bottom สำหรับการเคลื่อนตำแหน่งไปในทิศทางต่าง ๆ */
+  width: 100%;
+  max-width: 1000px;
+  /* ความกว้างของพื้นที่แสดงผลเป้าหมายเช่นเบราว์เซอร์ */
+  min-height: 1000px;
+  margin: 50px;
+  background: #fff;
+  display: grid;
+  /* ใช้ flex เมื่อ layout มีลักษณะการวางของต่างๆเป็นแถวเดียว ไม่แนวตั้งก็นอน (1D) */
+  /* ใช้ grid เมื่อ items ด้านในเรามีการจัดเรียงตัวที่ไม่ได้มีแค่แถวเดียว แต่มีลักษณะเป็น column กับ row (2D) */
+  grid-template-columns: 1fr 2fr;
+  /* <Row>
+    <Col>1 of 1</Col>
+  </Row> */
+  box-shadow: 5px 5px 15px rgba(50, 50, 50, 0.5);
+  /* เลขค่าแรก คือการสั่งงาน เงา แนวนอน เลขบวกคือ ด้านขวา เลขลบ คือด้านซ้าย
+    เลขตัวที่สอง คือการสั่งงาน แนวตั้ง เลขบวกคือ ด้านล่าง เลขลบ คือด้านบน
+    เลขตัวที่สาม คือการสั่ง ค่าการเบลอ ว่าจะเบลอประมาณไหน เริ่มจากค่า โรงงานคือ ศูนย์ และเป็นค่าบวก
+    เลขตัวที่สี่ คือการสั่งขอบเขตการขยายตัวของการเบลอ (a spread distance) ใช้เป็นค่า บวกเท่านั้น
+    สีของเงา สามารถใส่ได้ตามหลักการของ W3C ซึ่ง อ้างอิงจาก CSS Colors Module Level 3
+    inset คือคำสั่งให้ เงาเด้งกลับเข้าไปในกล่อง ซึ่งคล้ายๆ การสั่ง inner shadow ของ Adobe Photoshop */
+}
+.container .left_Side {
+  position: relative;
+  background: #003147;
+  padding: 40px;
+}
+.profileText {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  /* ขีดเส้นใต้ */
+}
+.xxx {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  /* ขีดเส้นใต้ */
+}
+/* .profileText .imgBX {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  overflow: hidden;ซ่อน คือ จะซ่อนส่วนที่เกินเนื้อหา ที่เหลือจะไม่ให้ปรากฎให้เห็น 
+  เหมือนกับการตัดออกไปเลย จะแสดงเท่ากับพื้นที่กำหนดไว้เท่านั้น div 
+}
+.profileText .imgBX img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+.profileText h2 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 20px;
+  text-transform: uppercase;
+  /* Text Transformation การแปลงข้อความ
+uppercase : ตัวอักษรตัวใหญ่ทั้งหมด 
+lowercase : ตัวอักษรตัวเล็กทั้งหมด 
+capitalize : ตัวอักษรตัวแรกของคำตัวใหญ่ และตัวต่อไปเล็ก */
+  /* text-align: center;
+  font-weight: 600;
+  line-height: 1.4em; */
+}
+.profileText h2 span {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+.contactInfo {
+  padding-top: 30px;
+}
+.title {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  /* letter-spacing: 1px;ใช้กำหนดระยะห่างระหว่างตัวอักษร */
+  margin-bottom: 20px;
+}
+.contactInfo ul {
+  position: relative;
+}
+.contactInfo ul li {
+  position: relative;
+  list-style: none;
+  margin: 10px 0;
+  /* บน ล่าง10 ซ้ายขวา 0 */
+  cursor: pointer;
+  /* Cursor ให้ปุ่ม เวลาเอาเมาส์ไปวางแล้วให้กลายเป็นรูปมือ */
+}
+.contactInfo ul li .icon {
+  display: inline-block;
+  width: 30px;
+  font-size: 18px;
+  color: #03a9f4;
+}
+.contactInfo ul li span {
+  color: #fff;
+  font-weight: 300;
+}
+.contactInfo.education li {
+  margin-bottom: 15px;
+}
+.contactInfo.education h5 {
+  color: #03a9f4;
+  font-weight: 500;
+}
+.contactInfo.education h4 {
+  color: #fff;
+  font-weight: 500;
+}
+.contactInfo.education h4 {
+  color: #fff;
+  font-weight: 300;
+}
+.contactInfo.language {
+  padding-right: 150px;
+}
+.contactInfo.language .percent {
+  position: relative;
+  /* position: relative; จะแสดงผลต่อจาก 
+  ณ จุดที่มันอยู่ตรงนั้น 
+  “แบบตรงไปตรงมา” */
+  width: 200%;
+  height: 10px;
+  background: #081921;
+  display: block;
+  margin-top: 5px;
+}
+.contactInfo.language .percent div {
+  position: absolute;
+  /* position: absolute; จะแสดงผลเป็น “อิสระ” คือ
+  จะให้มันไปอยู่ตรงไหนก็ได้ ทับกันได้
+  ซึ่งมันจะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น */
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #03a9f4;
+}
+.container .right_Side {
+  position: relative;
+  background: #fff;
+  padding: 40px;
+}
+.about {
+  margin-bottom: 50px;
+}
+.about:last-child {
+  margin-bottom: 0;
+}
+.title2 {
+  color: #003147;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+p {
+  color: #333;
+}
+.about .box {
+  display: flex;
+  flex-direction: row;
+  /* flex-direction: row: เรียงเป็นแถวแนวนอน จากขวาไปซ้าย 1234 */
+  margin: 50px 0;
+}
+.about .box .year_company {
+  min-width: 150px;
+  padding-right: 20px;
+}
+.about .box .year_company h5 {
+  text-transform: uppercase;
+  /* uppercase : ตัวอักษรตัวใหญ่ทั้งหมด */
+  color: #848c98;
+  font-weight: 600;
+}
+.about .box .text h4 {
+  text-transform: uppercase;
+  color: #2a7da2;
+  font-size: 16px;
+}
+.skills .box {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  /* min-width: 150px; เชื่อมต่อกัน  grid-template-columns: 150px 1fr; */
+  justify-content: center;
+  align-items: center;
+}
+.skills .box h4 {
+  text-transform: uppercase;
+  color: #848c98;
+  font-weight: 500;
+}
+.skills .box h4 .percent {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: #fff;
+}
+.skills .box .percent div {
+  position: absolute;
+  top: 10%;
+  height: 100%;
+  background: #03a9f4;
+}
+.interest ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* สร้าง 4 คอลัมภ์ แต่ละคอลัมภ์กว้าง 1fr  จะเทียบเท่ากับ 100% */
+}
+.interest ul li {
+  list-style: none;
+  color: #333;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.interest ul li .fa {
+  font-size: 18px;
+  width: 20px;
+}
